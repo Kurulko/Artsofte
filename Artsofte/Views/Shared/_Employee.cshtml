@@ -1,0 +1,67 @@
+﻿@model Employee
+@inject ArtsofteContext context
+
+<div class="row form-group">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-md-4">
+                <input asp-for="Name" class="form-control" required/>
+            </div>
+            <div class="col-md-4">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Surname"></label>
+            </div>
+            <div class="col-md-4">
+                <input asp-for="Surname"  class="form-control" required/>
+            </div>
+            <div class="col-md-4">
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Age"></label>
+            </div>
+            <div class="col-md-4">
+                <input asp-for="Age"  class="form-control" required/>
+            </div>
+            <div class="col-md-4">
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Department.Name"></label>
+            </div>
+            <div class="col-md-4">
+                <select asp-for="DepartmentId" asp-items="@(new SelectList(context.Departments,"Id","Name"))"
+                        class="form-control" required>
+                    <option disabled selected>Choose a department</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Language.Name"></label>
+            </div>
+            <div class="col-md-4">
+                <select asp-for="LanguageId" asp-items="@(new SelectList(context.Languages,"Id","Name"))"
+                        class="form-control" required>
+                    <option disabled selected>Choose a language</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

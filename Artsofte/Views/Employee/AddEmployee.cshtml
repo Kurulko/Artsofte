@@ -1,0 +1,20 @@
+﻿@model Employee
+@{
+    string title = "Adding an employee";
+    ViewData["Title"] = title;
+}
+<h3 class="text-center">@title</h3>
+<br>
+<form method="post">
+    <partial name="_Employee" model="@Model" />
+    <br />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <input type="submit" value="Add" class="btn btn-primary" />
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-danger" asp-action="Employees">Cancel</a>
+        </div>
+    </div>
+</form>
